@@ -32,26 +32,32 @@ body{text-align: center;}
 </style>
 </head>
 <body>
-    <h1>Subhashitam Samskrutam</h1>
+    <h1>Subhashitam Samskritam</h1>
     <h2>Name Correction Portal</h2>
-    <h3>(Name change allowed only once. So be careful while filling this form.)</h3>
+    <h3>(Please Note that Name change is allowed only once)</h3>
 
 <div class="container">
 <form method="POST" action="/">
 
-    <label for="email">Enter your email here:</label>
+    <label for="email">Enter your email here (used while appearing for course-1 exam) :</label>
     <input type="text" id="email" name="email" placeholder="e.g: nkgoyal272@gmail.com"><br><br>
 
     <input type="submit" value="Current Info">
 
 </form>
-<br><h3>{% if perso!=None: %} 
+<br><h3>
+        {%if perso=="emp"%}
+        {%print(" ")%}
+        {% elif perso!=None: %} 
         {%print ("Name: {}".format(perso.Name))%}<br><br>
         {%print ("E-Mail: {}".format(perso.Email))%}<br><br>
         {%print ("Grade: {}".format(perso.Grade))%}<br><br>
         
+        {%else%}
+        {%print("Please check your email for any errors")%}<br>
+        {%print("Your information was not generated since either you have not given exam or have not passed it")%}
+        
         {% endif %}</h3>
-        <p>Please check your email in case your information is not getting generated</p>
         <p>If you want to change your Name, please click <a href="{{ url_for('change') }}">here</a></p>
 </div>
 
