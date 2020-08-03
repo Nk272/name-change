@@ -21,6 +21,7 @@ def home():
         try:
             mail=request.form.get("email")
             mail=mail.lower()
+            mail=mail.strip()
             person = db.session.query(participants).filter_by(Email=mail).first()
             print(person)
             db.session.commit()
@@ -37,9 +38,14 @@ def change ():
         try:
             mail=request.form.get("email")
             mail=mail.lower()
+            mail=mail.strip()
             person = db.session.query(participants).filter_by(Email=mail).first()
             name1=request.form.get("name1")
             name2=request.form.get("name2")
+            name1=name1.strip()
+            name2=name2.strip()
+            name1=name1.lower()
+            name2=name2.lower()
             if (name1!=name2 or name1=="" or name2==""):
                 person="diff"
             if (name1==name2 and name1!="" and name2!="" and person!=None):
