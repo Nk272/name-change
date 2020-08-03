@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sanskrit Club IITR</title>
+    <link rel="shortcut icon" href="IITRlogo.jpg">
+<style>
+input[type=text],textarea{
+  width: 25%;
+  padding: 10px 20px;
+  margin: auto;
+  box-sizing: border-box;
+  border: 1px solid #C0C0C0;
+}
+input[type=text]:focus {
+	border: 1px solid black
+}
+.container {
+	border-radius: 2px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	text-align: center;
+}
+input[type=submit]{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+}
+body{text-align: center;}
+</style>
+</head>
+<body>
+    <h1>Subhashitam Samskrutam</h1>
+    <h2>Name Correction Portal</h2>
+    <h3>(Name change allowed only once. So be careful while filling this form.)</h3>
+
+<div class="container">
+<form method="POST" action="/namechange">
+    <label for="email">Enter your email here:</label>
+    <input type="text" id="email" name="email" placeholder="e.g: nkgoyal272@gmail.com"><br><br>
+
+    <label for="name">Enter new   name:  </label>
+    <input type="text" id="name1" name="name1" placeholder="New name"><br><br>
+
+    <label for="name">Enter name again:</label>
+    <input type="text" id="name2" name="name2" placeholder="Confirm new name"><br><br>
+
+    <input type="submit" value="Submit">
+    <br><h3>{% if perso!=None: %} 
+      {%print ("Name: {}".format(perso.Name))%}<br><br>
+      {%print ("E-Mail: {}".format(perso.Email))%}<br><br>
+      {%print ("Grade: {}".format(perso.Grade))%}<br><br>
+        
+        {% endif %}</h3>
+
+</form>
+</div>
+
+</body>
+</html>
